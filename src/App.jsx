@@ -49,7 +49,7 @@ const App = () => {
     <div className="calc-history-container">
       <div className="calc-container">
         <form>
-          <input type="text" value={results} />
+          <input type="text" value={results} placeholder="0" />
         </form>
 
         <div className="keypad">
