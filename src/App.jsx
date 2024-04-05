@@ -47,86 +47,86 @@ const App = () => {
 
   return (
     <div className="calc-history-container">
-      <div>
-        {isHistoryVisible &&
-          historyData.map((expRes) => {
-            let key = Object.keys(expRes);
-            const value = Object.values(expRes);
-            console.log(key, value);
-
-            return (
-              <div className="history-container">
-                <div>{key[0]} = </div>
-                <div>{value[0]}</div>
-              </div>
-            );
-          })}
-      </div>
       <div className="calc-container">
         <form>
           <input type="text" value={results} />
         </form>
 
         <div className="keypad">
-          <button id="clear" className="highlight" onClick={clear}>
+          <button className="numeric highlight" id="clear" onClick={clear}>
             CE
           </button>
-          <button id="backspace" className="highlight" onClick={backspace}>
+          <button className="numeric highlight" id="backspace" onClick={backspace}>
             backspace
           </button>
-          <button onClick={handleClick} className="highlight" name="/">
+          <button className="numeric highlight" onClick={handleClick} name="/">
             &divide;
           </button>
-          <button onClick={handleClick} name="7">
+          <button className="numeric" onClick={handleClick} name="7">
             7
           </button>
-          <button onClick={handleClick} name="8">
+          <button className="numeric" onClick={handleClick} name="8">
             8
           </button>
-          <button onClick={handleClick} name="9">
+          <button className="numeric" onClick={handleClick} name="9">
             9
           </button>
-          <button onClick={handleClick} className="highlight" name="*">
+          <button className="numeric highlight" onClick={handleClick} name="*">
             &times;
           </button>
-          <button onClick={handleClick} name="4">
+          <button className="numeric" onClick={handleClick} name="4">
             4
           </button>
-          <button onClick={handleClick} name="5">
+          <button className="numeric" onClick={handleClick} name="5">
             5
           </button>
-          <button onClick={handleClick} name="6">
+          <button className="numeric" onClick={handleClick} name="6">
             6
           </button>
-          <button onClick={handleClick} className="highlight" name="-">
+          <button className="numeric highlight" onClick={handleClick} name="-">
             &ndash;
           </button>
-          <button onClick={handleClick} name="1">
+          <button className="numeric" onClick={handleClick} name="1">
             1
           </button>
-          <button onClick={handleClick} name="2">
+          <button className="numeric" onClick={handleClick} name="2">
             2
           </button>
-          <button onClick={handleClick} name="3">
+          <button className="numeric" onClick={handleClick} name="3">
             3
           </button>
-          <button onClick={handleClick} className="highlight" name="+">
+          <button className="numeric highlight" onClick={handleClick} name="+">
             +
           </button>
-          <button onClick={handleClick} name="0">
+          <button className="numeric" onClick={handleClick} name="0">
             0
           </button>
-          <button onClick={handleClick} name=".">
+          <button className="numeric" onClick={handleClick} name=".">
             .
           </button>
-          <button id="results" className="highlight" onClick={calculate}>
+          <button className="numeric highlight" id="results" onClick={calculate}>
             =
           </button>
         </div>
+      </div>
+      <div className="history-container">
+        <button className="numeric history highlight" onClick={showHistory}>
+          History
+        </button>
         <div>
-          <button onClick={showHistory} className="history">
-            History
-          </button>
+          {isHistoryVisible &&
+            historyData.map((expRes) => {
+              let key = Object.keys(expRes);
+              const value = Object.values(expRes);
+              console.log(key, value);
+
+              return (
+                <div className="historyData-container">
+                  <div className="key">{key[0]} = </div>
+                  <div className="value">{value[0]}</div>
+                </div>
+              );
+            })}
         </div>
       </div>
     </div>
