@@ -56,8 +56,8 @@ const App = () => {
 
             return (
               <div className="history-container">
-                <span>{key[0]} = </span>
-                <span>{value[0]}</span>
+                <div>{key[0]} = </div>
+                <div>{value[0]}</div>
               </div>
             );
           })}

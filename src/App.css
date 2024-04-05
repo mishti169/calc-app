@@ -11,7 +11,6 @@
 
 .calc-container{
   width: 100vh;
-  border: 2px solid red;
   text-align: center;
   background-color: black;
 }
@@ -24,7 +23,7 @@
 
 input[type="text"]{
   height: 75px;
-  width: 249px;
+  width: 300px;
   background-color: #10111600;
   border: 0px;
   color: #fff;
@@ -67,11 +66,11 @@ button:active {
 .calc-history-container{
   display: flex;
   justify-content: space-between;
-  border: 2px solid green;
 
 } 
 .history-container{
   display: flex;
+  flex-direction: column;
 }
 .history{
   width:100% ;
