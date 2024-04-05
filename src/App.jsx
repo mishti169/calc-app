@@ -9,6 +9,7 @@ const App = () => {
 
   const [results, setResults] = useState("");
   const [isHistoryVisible, setIsHistoryVisible] = useState(false);
+  const [historyData, setHistoryData] = useState([]);
 
   const clear = () => {
     setResults("");
@@ -26,7 +27,7 @@ const App = () => {
     } catch {
       setResults("ERROR");
     }
-    if (localStorage.getItem("history") === undefined) {
+    if (localStorage.getItem("history") === null) {
       localStorage.setItem("history", JSON.stringify([{ [expression]: finalResult }]));
     } else {
       let value = JSON.parse(localStorage.getItem("history"));
@@ -34,20 +35,21 @@ const App = () => {
       localStorage.setItem("history", JSON.stringify(value));
     }
   };
-  let data = [{ "8+66": 74 }, { "8+6": 14 }, { "5633+3": 5636 }, { "85+6": 91 }, { "56-6": 50 }];
 
   const showHistory = () => {
     setIsHistoryVisible((prevVal) => {
       return !prevVal;
     });
-    // localStorage.getItem('history')
+    if (isHistoryVisible) {
+      setHistoryData(JSON.parse(localStorage.getItem("history")));
+    }
   };
 
   return (
     <div className="calc-history-container">
       <div>
         {isHistoryVisible &&
-          data.map((expRes) => {
+          historyData.map((expRes) => {
             let key = Object.keys(expRes);
             const value = Object.values(expRes);
             console.log(key, value);
@@ -122,7 +124,9 @@ const App = () => {
           </button>
         </div>
         <div>
-          <button onClick={showHistory}>History</button>
+          <button onClick={showHistory} className="history">
+            History
+          </button>
         </div>
       </div>
     </div>

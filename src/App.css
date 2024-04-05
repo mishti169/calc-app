@@ -73,3 +73,6 @@ button:active {
 .history-container{
   display: flex;
 }
+.history{
+  width:100% ;
+}
