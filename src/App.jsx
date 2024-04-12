@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import CalcButton from "./Components/CalcButtons/CalcButtons.jsx";
 import { useEffect } from "react";
 
 const App = () => {
@@ -53,66 +54,45 @@ const App = () => {
         </form>
 
         <div className="keypad">
-          <button className="numeric highlight" id="clear" onClick={clear}>
-            CE
-          </button>
-          <button className="numeric highlight" id="backspace" onClick={backspace}>
-            backspace
-          </button>
-          <button className="numeric highlight" onClick={handleClick} name="/">
-            &divide;
-          </button>
-          <button className="numeric" onClick={handleClick} name="7">
-            7
-          </button>
-          <button className="numeric" onClick={handleClick} name="8">
-            8
-          </button>
-          <button className="numeric" onClick={handleClick} name="9">
-            9
-          </button>
-          <button className="numeric highlight" onClick={handleClick} name="*">
-            &times;
-          </button>
-          <button className="numeric" onClick={handleClick} name="4">
-            4
-          </button>
-          <button className="numeric" onClick={handleClick} name="5">
-            5
-          </button>
-          <button className="numeric" onClick={handleClick} name="6">
-            6
-          </button>
-          <button className="numeric highlight" onClick={handleClick} name="-">
-            &ndash;
-          </button>
-          <button className="numeric" onClick={handleClick} name="1">
-            1
-          </button>
-          <button className="numeric" onClick={handleClick} name="2">
-            2
-          </button>
-          <button className="numeric" onClick={handleClick} name="3">
-            3
-          </button>
-          <button className="numeric highlight" onClick={handleClick} name="+">
-            +
-          </button>
-          <button className="numeric" onClick={handleClick} name="0">
-            0
-          </button>
-          <button className="numeric" onClick={handleClick} name=".">
-            .
-          </button>
-          <button className="numeric highlight" id="results" onClick={calculate}>
-            =
-          </button>
+          <CalcButton id="clear" onClick={clear} btnName="CE" />
+          <CalcButton className="numeric highlight" id="backspace" onClick={backspace} />
+
+          <CalcButton className=" highlight" onClick={handleClick} btnName="&divide;" />
+
+          <CalcButton onClick={handleClick} btnName="7" />
+
+          <CalcButton onClick={handleClick} btnName="8" />
+
+          <CalcButton onClick={handleClick} btnName="9" />
+
+          <CalcButton className=" highlight" onClick={handleClick} btnName="&times;" />
+
+          <CalcButton onClick={handleClick} btnName="4" />
+
+          <CalcButton onClick={handleClick} btnName="5" />
+
+          <CalcButton onClick={handleClick} btnName="6" />
+
+          <CalcButton className=" highlight" onClick={handleClick} btnName="&ndash;" />
+
+          <CalcButton onClick={handleClick} btnName="1" />
+
+          <CalcButton onClick={handleClick} btnName="2" />
+
+          <CalcButton onClick={handleClick} btnName="3" />
+
+          <CalcButton className=" highlight" onClick={handleClick} btnName="+" />
+
+          <CalcButton onClick={handleClick} btnName="0" />
+
+          <CalcButton onClick={handleClick} btnName="." />
+
+          <CalcButton className=" highlight" id="results" btnName="=" onClick={calculate} />
         </div>
       </div>
       <div className="history-container">
-        <button className="numeric history highlight" onClick={showHistory}>
-          History
-        </button>
+        <CalcButton className=" history highlight" onClick={showHistory} btnName="History" />
+
         <div>
           {isHistoryVisible &&
             historyData.map((expRes) => {

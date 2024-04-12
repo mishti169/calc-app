@@ -85,7 +85,6 @@ button:active {
 }
 .historyData-container{
   display: flex;
-  flex-direction: column;
 }
 .history{
   width:100% ;
